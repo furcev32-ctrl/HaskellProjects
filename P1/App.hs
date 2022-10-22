@@ -1,4 +1,5 @@
-# To RUN the code
+-- To RUN the code use the command: "ghc --make App.hs"
+-- then type ./App
 
 doubleIt :: Int -> Int
 doubleIt x = x * 2
