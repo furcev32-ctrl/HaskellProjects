@@ -15,7 +15,6 @@ pow2 b 2 = b * b
 pow2 b e = (pow2 (pow2 b (div e 2)) 2)  * (if (mod e 2 == 0) then 1 else b)
 
 
-pow3 b e = pow3acc b e 1
-
+pow3 b e = if e < 0 then error "Exponent can not be negative." else pow3acc b e 1
 pow3acc b 0 acc = acc
 pow3acc b e acc = pow3acc b (e - 1) b*acc
