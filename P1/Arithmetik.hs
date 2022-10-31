@@ -27,3 +27,5 @@ biSec a b r e
     |otherwise = biSec mid b r e
         where mid = (div (b + a) 2)
 root e r = biSec 1 r r e
+
+isPrime x = [y | y <- [2..(root 2 x)], mod x y == 0] == []
