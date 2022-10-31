@@ -23,7 +23,7 @@ pow3acc b e acc = pow3acc b (e - 1) b*acc
 
 biSec a b r e
     |b - a == 1 = a 
-    |pow3 (div (b + a) 2) e > r = biSec a (div (b + a) 2) r e
-    |otherwise = biSec (div (b + a) 2) b r e
-
+    |pow3 mid e > r = biSec a mid r e
+    |otherwise = biSec mid b r e
+        where mid = (div (b + a) 2)
 root e r = biSec 1 r r e
