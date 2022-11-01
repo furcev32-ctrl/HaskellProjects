@@ -15,17 +15,14 @@ insertSortAcc (x:xs) acc
 merge [] y = y
 merge (x:xs) y = merge xs (insert x y) 
 
-
-spliter l = spliterAcc [] l 
-spliterAcc acc (x:xs)
+splitter (l:ls) = splitterAcc [] (l:ls)
+splitterAcc acc (x:xs)
     | xs == [] = [x]:acc 
-    | otherwise = spliterAcc ([x]:acc) xs
+    | otherwise = splitterAcc ([x]:acc) xs
 
 mergeSort [] = []
-mergeSort l = mergeSortAcc l []
-
-mergeSortAcc l:ls acc
-    | ls==[] = merge acc [l]
-    | otherwise merge [l] 
-
-
+mergeSort (l) = head (mergePairwise (splitter (l)))
+ 
+mergePairwise (l:m:ls)
+    | ls == [] = [merge l m]
+    | otherwise = mergePairwise ([merge l m] ++ (ls))
