@@ -1,4 +1,4 @@
-module Fibs where
+module Collatz where
 
 collatz :: Int -> [Int]
 collatz = iterate (\n -> if n `mod` 2 == 0 then n `div` 2 else 3*n + 1 )
